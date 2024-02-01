@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import { ButtonProps } from "../../shared/config/types";
-import { cx } from "../../shared/config/constaints";
+import { ButtonProps } from "../../../shared/config/types";
+import { cx } from "../../../shared/config/constaints";
 //
-
 
 const Button: FC<ButtonProps> = ({
   className = "",
@@ -17,19 +16,17 @@ const Button: FC<ButtonProps> = ({
   secondary,
   onClick = () => {},
 }) => {
-  const CLASSES =
-    `
+  const CLASSES = `
         relative text-white h-auto bg-primary inline-flex items-center justify-center rounded-[4px] transition-all font-medium hover:bg-primary-dark duration-300	
-        ${disabled && '!bg-primary/50 hover:!bg-disable cursor-not-allowed'} 
-        ${loading && 'cursor-not-allowed !bg-disable hover:!bg-disable'}
+        ${disabled && "!bg-primary/50 hover:!bg-disable cursor-not-allowed"} 
+        ${loading && "cursor-not-allowed !bg-disable hover:!bg-disable"}
         ${fontSize} 
         ${sizeClass} 
         ${translate}
         ${className} 
-    `  
+    `;
 
-  const SECONDARY_CLASS = 
-    `bg-transparent outline outline-[1.7px] text-primary outline-primary hover:!text-white hover:bg-primary`
+  const SECONDARY_CLASS = `bg-transparent outline outline-[1.7px] text-primary outline-primary hover:!text-white hover:bg-primary`;
 
   const _renderLoading = () => {
     return (
@@ -56,14 +53,10 @@ const Button: FC<ButtonProps> = ({
     );
   };
 
-
   return (
     <button
       disabled={disabled || loading}
-      className={cx(
-        CLASSES,
-        secondary && SECONDARY_CLASS
-      )}
+      className={cx(CLASSES, secondary && SECONDARY_CLASS)}
       onClick={onClick}
       type={type}
     >
